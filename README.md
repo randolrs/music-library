@@ -57,5 +57,8 @@ My reactive search implementation does not have any meaningful performance issue
 ### More Mobile Considerations
 I made some (including small fonts, spacing in the layouts as well as abbreviated song data on small screens). If the scope of this project were greater I would commit more time to making the search function in particular easier to use on mobile-sized screens (although the existing solution works pretty well).
 
-### udio Playing Functionality
+### Audio Playing Functionality
 If extended, this scope of this project should include as a major feature the ability to index and play audio from real audio files, either store locally or in the cloud. This would necessitate the creation of (at least one) Vuejs component related to the "current playing" audio as well as other audio tracking libraries.
+
+### Artist / Album Pages
+The next set of pages that would be added to this application would likely be pages related to the albums/artists associated with each song. The names of those artists/albums in the <Song> component would be links to those pages for a cohesive user experience.
