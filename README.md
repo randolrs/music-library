@@ -1,4 +1,4 @@
-# vue-test-utils-karma-example
+# Music Library
 
 > A Vue.js project
 
