@@ -1,6 +1,7 @@
 <template>
   <footer>
-    <span>I'm a footer</span>
+    <span>Ⓒ</span>
+    <a class="footer__link" href="http://ShaneRandolph.com">Shane Randolph</a><span>, 2018</span>
   </footer>
 </template>
 
