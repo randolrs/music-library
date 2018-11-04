@@ -8,7 +8,7 @@ The purpose of this project is to create a front-end music library with the foll
 * Sort songs by album name, song title, and other attributes
 * Search by song title and other search criteria
 
-##Technology
+## Technology
 The primary technologies used for this application include:
 * webpack;
 * the javascript library, VUEJS;
@@ -48,7 +48,7 @@ I also took a more dynamic approach to displaying data about the songs in an ind
 ## Limitations
 Given the limited scope of this project, I want to take the opportunity to outline some of the limitations of this solution that I am aware of (as well as my proposed solutions if this project had a greater scope):
 
-###Fuzzy Search
+### Fuzzy Search
 I would have implemented fuzzy search (versus the much simplet JS .includes() method) to "cast a wider net" on search results that would give the user more lee-way in terms of how accurate their search query must be.
 
 ### Lodash for Search
@@ -57,5 +57,5 @@ My reactive search implementation does not have any meaningful performance issue
 ### More Mobile Considerations
 I made some (including small fonts, spacing in the layouts as well as abbreviated song data on small screens). If the scope of this project were greater I would commit more time to making the search function in particular easier to use on mobile-sized screens (although the existing solution works pretty well).
 
-###Audio Playing Functionality
+### udio Playing Functionality
 If extended, this scope of this project should include as a major feature the ability to index and play audio from real audio files, either store locally or in the cloud. This would necessitate the creation of (at least one) Vuejs component related to the "current playing" audio as well as other audio tracking libraries.
