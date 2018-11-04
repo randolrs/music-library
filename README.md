@@ -34,6 +34,7 @@ npm run build
 npm run test
 ```
 I acheieved pretty good test coverage for a small project (on the order of 70-80%). Most unit testing was related to sorting and searches, and various reset methods in the UI.
+***Full disclosure, I started with a mostly configured webpack/VueJS/Karma setup avaialble here: https://github.com/eddyerburgh/vue-test-utils-karma-example
 
 ## Architecture
 I principally employed a top down component architecture where the state of the music library was store, managed, and updated almost entirely in the parent <MusicLibrary> component. For the purposes of rendering UI elements, the data is passed down from the parent component to the appropriate children (e.g. <SongsList>, <Song>) as props.
@@ -55,3 +56,6 @@ My reactive search implementation does not have any meaningful performance issue
 
 ### More Mobile Considerations
 I made some (including small fonts, spacing in the layouts as well as abbreviated song data on small screens). If the scope of this project were greater I would commit more time to making the search function in particular easier to use on mobile-sized screens (although the existing solution works pretty well).
+
+###Audio Playing Functionality
+If extended, this scope of this project should include as a major feature the ability to index and play audio from real audio files, either store locally or in the cloud. This would necessitate the creation of (at least one) Vuejs component related to the "current playing" audio as well as other audio tracking libraries.
