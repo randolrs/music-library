@@ -1,0 +1,20 @@
+$nav-line-height: 30px
+
+.nav
+	position: fixed
+	left: 0px
+	right: 0px
+	top: 0px
+	height: $nav-height
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1), 0px 2px 5px rgba(0,0,0,0.2)
+	display: flex
+	background: #424242
+	color: #fff
+	&__left, &__right
+		flex: 1
+	&__right
+		text-align: right
+	&__link
+		line-height: 30px
+		padding: ($nav-height - $nav-line-height) / 2 20px
+		display: inline-block

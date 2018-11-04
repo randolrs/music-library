@@ -1,10 +1,10 @@
 <template>
-  <div id="app" v-bind:class="{'night-mode': nightMode}">
-    <Nav :nightMode="nightMode" />
+  <div id="app">
+    <Nav />
     <div class="main">
-      <MusicLibrary :nightMode="nightMode" />
+      <MusicLibrary />
     </div>
-    <Footer :nightMode="nightMode" />
+    <Footer />
   </div>
 </template>
 
@@ -23,7 +23,6 @@ export default {
   },
   data () {
     return {
-      nightMode: true
     }
   }
 }

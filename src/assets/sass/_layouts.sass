@@ -1,0 +1,58 @@
+$header-title-height: 48px
+
+#app
+	background: #111
+	font-family: 'Roboto', sans-serif
+.main
+	padding-top: $nav-height
+	min-height: 100vh
+	&__header
+		margin-bottom: 20px
+		background: #000
+		color: #eee
+		&__content
+			max-width: $max-content-width
+			padding: $main-section-content-padding
+			margin: 0 auto
+			display: flex
+			&__left, &__right
+				flex: 1
+			&__right
+				text-align: right
+			&__title
+				font-size: $header-title-height
+				font-weight: 600
+				margin-bottom: 15px
+				line-height: $header-title-height
+				&__divider
+					width: 75%
+					display: inline-block
+					height: 3px
+					background: #f00
+					margin-bottom: 15px
+					background: #40E0D0
+					background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0)
+					background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0)
+
+			&__cta
+				line-height: $header-title-height
+				display: inline-block
+			&__info
+				font-size: 22px
+				margin-bottom: 5px
+				&:last-child
+					margin-bottom: 0px
+	&__content
+		max-width: $max-content-width
+		margin: 0 auto
+		padding: $main-section-content-padding
+i
+	transition: 0.2s
+	opacity: 1
+	&.invisible
+		opacity: 0
+	&.inverted
+		transform: rotate(180deg)
+*
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale

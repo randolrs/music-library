@@ -1,0 +1,64 @@
+.songs-list
+	&__header
+		display: flex
+		width: 100%
+		border-radius: 3px 3px 0px 0px
+		background: #000
+		color: #eee
+		font-weight: 400
+		font-size: 15px
+		box-shadow: inset 0px 1px 3px rgba(255,255,255,0.1)
+		&__entry
+			flex: 1
+			&__data
+				display: inline-block
+				padding: 10px
+				width: 100%
+				text-align: center
+				text-transform: uppercase
+				cursor: pointer
+				i
+					display: inline-block
+					width: 10px
+					margin-left: 3px
+				&--text
+					margin-left: 10px
+				&.active
+					color: #40e0d0
+					font-weight: 600
+					text-shadow: 0px 1px 2px rgba(0,0,0,0.1)
+	&__search-label
+		font-size: 18px
+		color: #fff
+		margin-bottom: 20px
+	&__empty
+		padding: 50px
+		text-align: center
+		color: #fff
+		font-size: 22px
+		p
+			margin-bottom: 25px
+.song
+	display: flex
+	width: 100%
+	color: #fff
+	transition: 0.2s background
+	border-radius: 3px
+	border: 1px solid #000
+	border-bottom: none
+	&:first-child
+		border-radius: 0px 0px 3px 3px
+	&:last-child
+		border-bottom: 1px solid #000
+	&:hover
+		cursor: pointer
+		background: #424242
+		box-shadow: 0px 1px 4px rgba(0,0,0,0.1)
+		text-shadow: 0px 1px 2px rgba(0,0,0,0.2)
+	&__entry
+		flex: 1
+		&__data
+			display: inline-block
+			padding: 15px 5px
+			width: 100%
+			text-align: center
