@@ -31,6 +31,7 @@
 <script>
 
 import MySongs from '../../data/MySongs'
+import FormatSecondsAsTime from '../../helpers/FormatSecondsAsTime'
 import SongsList from './songs/SongsList'
 import Search from './search/Search'
 
@@ -132,10 +133,11 @@ export default {
       return this.mySongs.length;
     },
     allSongsLength() {
-      return this.mySongs.reduce((total, song) => {
+      let totalSeconds = this.mySongs.reduce((total, song) => {
         total += song.length;   
         return total;
-      }, 0)
+      }, 0);
+      return FormatSecondsAsTime(totalSeconds);
     },
     displaySongs() {
       let _displaySongs = this.mySongs;
@@ -148,7 +150,7 @@ export default {
       }
 
       return _displaySongs;
-    }
+    },
   }
 }
 </script>

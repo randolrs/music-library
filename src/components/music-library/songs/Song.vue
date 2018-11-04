@@ -12,6 +12,8 @@
 
 <script>
 
+import FormatSecondsAsTime from '../../../helpers/FormatSecondsAsTime'
+
 export default {
   name: 'Song',
   props: {
@@ -27,7 +29,11 @@ export default {
       if(this.songIndexKeys) {
         return this.songIndexKeys.map(songKey => {
           if(this.song[songKey.name]) {
-            return this.song[songKey.name];
+            if(songKey.name === 'length') {
+              return FormatSecondsAsTime(this.song[songKey.name]);
+            } else {
+              return this.song[songKey.name];
+            }
           } else {
             return null;
           }
