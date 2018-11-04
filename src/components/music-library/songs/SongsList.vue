@@ -8,7 +8,11 @@
         <span>"{{ searchInput }}"</span>
       </p>
       <div class="songs-list__header">
-        <div v-for="indexKey in songIndexKeys" class="songs-list__header__entry">
+        <div
+          v-for="(indexKey, index) in songIndexKeys"
+          class="songs-list__header__entry"
+          v-bind:class="{'hide-on-mobile': index > 2}"
+        >
           <div
             class="songs-list__header__entry__data"
             v-bind:class="{'active': indexKey.name === sortKey}"

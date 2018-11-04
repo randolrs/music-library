@@ -13,7 +13,13 @@ let testSongData = {
     img_src: "https://s3.com",
 };
 
-let testSongKeys = ['title', 'album', 'length', 'artist', 'genre'];
+let testSongKeys = [
+					{name: 'title', type: 'string'},
+					{name: 'album', type: 'string'},
+					{name: 'length', type: 'number'},
+					{name: 'artist', type: 'string'},
+					{name: 'genre', type: 'string'}
+				];
 
 describe('Song.vue', () => {
 
@@ -26,6 +32,6 @@ describe('Song.vue', () => {
 	it('determine if song data is parsed/ordered correctly', () => {
 		cmp.setProps({ songIndexKeys: testSongKeys, song: testSongData });
 		expect(cmp.vm.songDataArray.length).equals(testSongKeys.length);
-		expect(cmp.vm.songDataArray[0]).equals(testSongData[testSongKeys[0]]);
+		expect(cmp.vm.songDataArray[0]).equals(testSongData[testSongKeys[0]['name']]);
 	})
 })

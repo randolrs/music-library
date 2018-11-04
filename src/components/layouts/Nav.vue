@@ -15,7 +15,7 @@ export default {
   name: 'Nav',
   props: {
   },
-  data () {
+  data () { 
     return {
     }
   }

@@ -2,7 +2,8 @@
   <div class="song">
     <div
       class="song__entry"
-      v-for="songDatum in songDataArray">
+      v-for="(songDatum, index) in songDataArray"
+      v-bind:class="{'hide-on-mobile': index > 2}">
       <div class="song__entry__data">
         {{ songDatum }}
       </div>

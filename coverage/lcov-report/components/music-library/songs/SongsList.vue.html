@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/3</span>
       </div>
     </div>
   </div>
@@ -84,7 +84,82 @@
 39
 40
 41
-42</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,6 +194,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -127,19 +205,51 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
   &lt;div class="songs-list"&gt;
-    &lt;div class="songs-list__header"&gt;
-      &lt;div v-for="indexKey in songIndexKeys" class="songs-list__header__entry"&gt;
-        &lt;div class="songs-list__header__entry__data" @click="updateSort(indexKey.name)"&gt;
-          &lt;span&gt;{{ indexKey.name }}&lt;/span&gt;
+    &lt;template v-if="songs &amp;&amp; songs.length &gt; 0"&gt;
+      &lt;p class="songs-list__search-label" v-if="searchActive"&gt;
+        &lt;span&gt;Showing&lt;/span&gt;
+        &lt;span&gt;{{ songs.length }}&lt;/span&gt;
+        &lt;span&gt;results for&lt;/span&gt;
+        &lt;span&gt;"{{ searchInput }}"&lt;/span&gt;
+      &lt;/p&gt;
+      &lt;div class="songs-list__header"&gt;
+        &lt;div
+          v-for="(indexKey, index) in songIndexKeys"
+          class="songs-list__header__entry"
+          v-bind:class="{'hide-on-mobile': index &gt; 2}"
+        &gt;
+          &lt;div
+            class="songs-list__header__entry__data"
+            v-bind:class="{'active': indexKey.name === sortKey}"
+            @click="updateSort(indexKey.name)"
+          &gt;
+            &lt;span class="songs-list__header__entry__data--text"&gt;{{ indexKey.name }}&lt;/span&gt;
+            &lt;i
+              class="fas fa-angle-up"
+              v-bind:class="{'invisible': sortKey !== indexKey.name, 'inverted': sortAscending}"&gt;&lt;/i&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;Song
-      v-for="song in songs"
-      :song="song"
-      :songIndexKeys="songIndexKeys"
-      v-bind:key="song.id"
-    /&gt;
+      &lt;Song
+        v-for="song in songs"
+        :song="song"
+        :songIndexKeys="songIndexKeys"
+        v-bind:key="song.id"
+      /&gt;
+    &lt;/template&gt;
+    &lt;template v-else&gt;
+      &lt;div class="songs-list__empty"&gt;
+        &lt;template v-if="searchActive"&gt;
+          &lt;p&gt;No Search Results&lt;/p&gt;
+          &lt;div class="btn btn__clear-search" @click="clearSearch()"&gt;
+            &lt;span&gt;Clear Search&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/template&gt;
+        &lt;template v-else&gt;
+          &lt;span&gt;Your Library is Empty&lt;/span&gt;
+        &lt;/template&gt;
+      &lt;/div&gt;
+    &lt;/template&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
@@ -154,7 +264,11 @@ export default {
   },
   props: {
     songs: Array,
-    songIndexKeys: Array
+    songIndexKeys: Array,
+    sortKey: String,
+    sortAscending: Boolean,
+    searchActive: Boolean,
+    searchInput: String
   },
   data () {
 <span class="cstat-no" title="statement not covered" >    return {</span>
@@ -163,6 +277,9 @@ export default {
   methods: {
     updateSort(indexKey) {
 <span class="cstat-no" title="statement not covered" >      this.$emit('updateSort', indexKey);</span>
+    },
+    clearSearch() {
+<span class="cstat-no" title="statement not covered" >      this.$emit('clearSearch')</span>
     }
   }
 }
@@ -172,7 +289,7 @@ export default {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 04 2018 10:37:19 GMT-0800 (Pacific Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 04 2018 14:06:17 GMT-0800 (Pacific Standard Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

@@ -5,7 +5,6 @@ $header-title-height: 48px
 	font-family: 'Roboto', sans-serif
 .main
 	padding-top: $nav-height
-	padding-bottom: 60px
 	min-height: 100vh
 	&__header
 		margin-bottom: 20px
@@ -57,3 +56,21 @@ i
 *
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
+
+@media(max-width: $mobile-breakpoint) 
+	.main__header__content
+		padding: 25px
+		display: block
+		&__left, &__right
+			flex: none
+			display: block
+			width: 100%
+		&__left
+			margin-bottom: 20px
+		&__right
+			text-align: left
+		&__title
+			font-size: 32px
+			line-height: 32px
+		&__info
+			font-size: 18px
